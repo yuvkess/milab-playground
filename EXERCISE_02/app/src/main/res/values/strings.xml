@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">EXERCISE_02</string>
+    <string name="stark">Stark</string>
+    <string name="lannister">Lannister</string>
+    <string name="vs">VS</string>
+</resources>
