@@ -6,12 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.List;
 
 public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.FamilyMemberViewHolder> {
-    List<FamilyMember> mData;
+    private List<FamilyMember> mData;
 
     public MembersAdapter(List<FamilyMember> data) {
         this.mData = data;
@@ -31,10 +31,10 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.FamilyMe
     @Override
     public void onBindViewHolder(@NonNull FamilyMemberViewHolder holder, int position) {
         FamilyMember familyMember = mData.get(position);
-
         TextView textView = holder.mTextView;
-        textView.setText(familyMember.name);
-        textView.setCompoundDrawablesWithIntrinsicBounds(null, familyMember.img, null, null);
+        textView.setText(familyMember.getName());
+        ImageView imageView = holder.mImageView;
+        imageView.setImageDrawable(familyMember.getImage());
     }
 
     @Override
@@ -44,10 +44,12 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.FamilyMe
 
     public static class FamilyMemberViewHolder extends RecyclerView.ViewHolder {
         private TextView mTextView;
+        private ImageView mImageView;
 
         public FamilyMemberViewHolder(View itemView) {
             super(itemView);
             mTextView = itemView.findViewById(R.id.member_name);
+            mImageView = itemView.findViewById(R.id.member_image);
         }
     }
 }

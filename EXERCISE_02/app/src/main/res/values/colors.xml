@@ -3,8 +3,8 @@
     <color name="colorPrimary">#595959</color>
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorStark">#78BE97</color>
-    <color name="colorLannister">#F2454B</color>
+    <color name="colorStark">#78be97</color>
+    <color name="colorLannister">#f2454b</color>
     <color name="colorButtonText">#fff</color>
     <color name="colorText">#000</color>
 </resources>

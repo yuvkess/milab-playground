@@ -3,4 +3,7 @@
     <string name="stark">Stark</string>
     <string name="lannister">Lannister</string>
     <string name="vs">VS</string>
+    <string name="image">image_value</string>
+    <string name="lannister_head">The Lannisters</string>
+    <string name="stark_head">The Starks</string>
 </resources>

@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class LannisterActivity extends AppCompatActivity {
-    ArrayList<FamilyMember> members;
+    private ArrayList<FamilyMember> members;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
