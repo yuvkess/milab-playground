@@ -1,25 +1,23 @@
 package milab.idc.com.exercise_03;
 
 import android.app.AlarmManager;
-import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Intent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
+import android.support.v4.app.JobIntentService;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.ContextCompat;
 
-import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
-
-public class QuoteNotificationService extends IntentService {
+public class QuoteJobService extends JobIntentService {
     private static final String ACTION_INIT = "milab.idc.com.exercise_03.action.ACTION_INIT";
     private static final String ACTION_NOTIFY = "milab.idc.com.exercise_03.action.ACTION_NOTIFY";
     private static final String CHANNEL_ID = "NotifyChannel";
@@ -29,25 +27,26 @@ public class QuoteNotificationService extends IntentService {
     private final int[] images = {R.drawable.alyssa, R.drawable.james};
     private static int index = 0;
 
-    public QuoteNotificationService() {
-        super("QuoteNotificationService");
+    public static void enqueueWork(Context context, Intent work) {
+        enqueueWork(context, JobIntentService.class, 1, work);
     }
 
-
     public static void startActionInit(Context context) {
-        Intent intent = new Intent(context, QuoteNotificationService.class);
+        Intent intent = new Intent(context, QuoteJobService.class);
         intent.setAction(ACTION_INIT);
-        context.startService(intent);
+//        context.startService(intent);
+        enqueueWork(context, intent);
     }
 
     public static void startActionNotify(Context context) {
-        Intent intent = new Intent(context, QuoteNotificationService.class);
+        Intent intent = new Intent(context, QuoteJobService.class);
         intent.setAction(ACTION_NOTIFY);
-        context.startService(intent);
+//        context.startService(myIntent);
+        enqueueWork(context, intent);
     }
 
     @Override
-    protected void onHandleIntent(Intent intent) {
+    protected void onHandleWork(@NonNull Intent intent) {
         if (intent != null) {
             final String action = intent.getAction();
             if (ACTION_INIT.equals(action)) {
@@ -62,7 +61,7 @@ public class QuoteNotificationService extends IntentService {
         quotes[0] = getResources().getStringArray(R.array.alyssa_quotes);
         quotes[1] = getResources().getStringArray(R.array.james_quotes);
 
-        BroadcastReceiver br = new AlarmReceiver();
+        AlarmReceiver br = new AlarmReceiver();
         IntentFilter filter = new IntentFilter(ACTION_NOTIFY);
         getApplicationContext().registerReceiver(br, filter);
 
@@ -84,7 +83,7 @@ public class QuoteNotificationService extends IntentService {
         }
         quote = quotes[index][counters[index]];
         image =  images[index];
-        counters[index] += 1;
+        counters[index] += counters[index];
         index = 1-index;
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);

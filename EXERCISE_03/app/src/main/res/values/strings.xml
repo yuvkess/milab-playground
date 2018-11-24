@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">EXERCISE_03</string>
-    <string name="quote1">"A lot of the time you don't register the important moments in your life as they happen. You only see that they were important when you look back \n"</string>
-    <string name="quote1_by">"-Alyssa"</string>
-    <string name="quote3">EXERCISE_03</string>
-    <string name="quote4">EXERCISE_03</string>
-    <string name="quote5">EXERCISE_03</string>
-    <string name="quote6">EXERCISE_03</string>
-    <string name="quote7">EXERCISE_03</string>
+    <string-array name="alyssa_quotes">
+        <item>"\"A lot of the time you don't register the important moments in your life as they happen. You only see that they were important when you look back.\" \n-Alyssa"</item>
+        <item>"\"It's like we're on the edge of the world. Like we're safe. Only, we're not.\" \n-Alyssa"</item>
+        <item>"\"[I’m trying to think what adults do in a situation like this] Shall we go downstairs and have a glass of wine?\" \n-Alyssa"</item>
+    </string-array>
+    <string-array name="james_quotes">
+        <item>"\"I tended not to feel things. For a long time, I was good at it. Good at feeling absolutely nothing. I didn't even have to try. I just didn't.\" \n-James"</item>
+        <item>"\"I'd always wanted to punch my dad in the face.\" \n-James"</item>
+        <item>"\"That was the day I learned that silence is really loud.\" \n-James"</item>
+    </string-array>
 </resources>

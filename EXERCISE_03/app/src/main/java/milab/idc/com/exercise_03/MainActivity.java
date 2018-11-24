@@ -13,5 +13,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         QuoteNotificationService.startActionInit(this);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+//            QuoteJobService.startActionInit(this);
+//        } else {
+//            QuoteNotificationService.startActionInit(this);
+//        }
     }
 }
