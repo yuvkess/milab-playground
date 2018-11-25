@@ -17,15 +17,13 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.ContextCompat;
 
-import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
-
 public class QuoteNotificationService extends IntentService {
     private static final String ACTION_INIT = "milab.idc.com.exercise_03.action.ACTION_INIT";
     private static final String ACTION_NOTIFY = "milab.idc.com.exercise_03.action.ACTION_NOTIFY";
     private static final String CHANNEL_ID = "NotifyChannel";
-    protected int mNotificationId = 1;
+    protected static int mNotificationId = 1;
     private static String[][] quotes = new String[2][];
-    private int[] counters = {0,0};
+    private static int[] counters = {0,0};
     private final int[] images = {R.drawable.alyssa, R.drawable.james};
     private static int index = 0;
 
@@ -33,17 +31,18 @@ public class QuoteNotificationService extends IntentService {
         super("QuoteNotificationService");
     }
 
-
     public static void startActionInit(Context context) {
         Intent intent = new Intent(context, QuoteNotificationService.class);
         intent.setAction(ACTION_INIT);
         context.startService(intent);
+//        ContextCompat.startForegroundService(context, intent);
     }
 
     public static void startActionNotify(Context context) {
         Intent intent = new Intent(context, QuoteNotificationService.class);
         intent.setAction(ACTION_NOTIFY);
         context.startService(intent);
+//        ContextCompat.startForegroundService(context, intent);
     }
 
     @Override
@@ -84,7 +83,7 @@ public class QuoteNotificationService extends IntentService {
         }
         quote = quotes[index][counters[index]];
         image =  images[index];
-        counters[index] += 1;
+        counters[index]++;
         index = 1-index;
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);

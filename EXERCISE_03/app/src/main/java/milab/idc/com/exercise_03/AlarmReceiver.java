@@ -9,6 +9,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+//        QuoteJobService.startActionNotify(context);
         QuoteNotificationService.startActionNotify(context);
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
 //            QuoteJobService.startActionNotify(context);
