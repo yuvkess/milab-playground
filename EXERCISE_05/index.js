@@ -15,6 +15,11 @@ app.get('/files/:fileName', (req, res) => {
  });
 });
 
+app.get('/*', (req, res) => {
+		res.writeHead(404);
+		res.end(`The URI you entered does not exist`);
+});
+
 
 app.listen(3000, () => {
  console.log('Listening on port 3000!');
