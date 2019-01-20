@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">StockAppClient</string>
+    <string name="enter_input_label">Enter a stock name</string>
+    <string name="stock_name_hint">Stock Name</string>
+    <string name="button_text">Follow Stock</string>
+    <string name="button2_text">Unfollow</string>
+    <string name="current_stock_price_label">Current Stock Price</string>
+    <string name="default_notification_channel_id">channel</string>
+    <string name="default_notification_channel_name">channelName</string>
+</resources>
